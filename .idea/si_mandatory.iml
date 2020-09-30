@@ -4,7 +4,7 @@
     <content url="file://$MODULE_DIR$/../si_mandatory">
       <excludeFolder url="file://$MODULE_DIR$/../si_mandatory/venv" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (si_mandatory)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
