@@ -25,7 +25,7 @@ and RESTful APIs) integration patterns.
     2. [localhost:8089, NemId-password-generator](http://localhost:8089/docs)
     3. [localhost:8090, NemId-code-generator](http://localhost:8090/docs)  
 
-_execute scripts within the terminal from the project root folder. When using uvicorn the python virtual environment need to be activated_
+_execute commands from the project root folder. When using uvicorn the python virtual environment need to be activated_
 
 ## Mandatory 1 - Module descriptions
 

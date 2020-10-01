@@ -12,8 +12,6 @@ CSV_LOCATION = "../server_service/" + CSV_FILE_NAME
 MSG_PACK_NAME = "CPR"
 
 CPR_GENERATED_NUMBER_LENGTH = 4
-COUNTRY = "Denmark"
-NONE_ADDRESS = "unknown"
 
 ESB_SERVICE_ADDRESS = "http://localhost:8080"
 ESB_SERVICE_API_NEMID_ENDPOINT = "/nemID"
@@ -36,16 +34,19 @@ def read_csv_file(csv_config: PersonCsvConfig):
     return csv_persons
 
 
+# TODO check I can add here multiple persons as well
+# Maybe split at serializing step
 def add_person(person):
     lastname = person["LastName"]
     firstname = person["FirstName"]
     email = person["Email"]
+    date_of_birth = person["DateOfBirth"]
     phone = person["Phone"]
-    # gender = person["Gender"]  # this information is at the moment not getting processed and therefore commented out
+    address = person["Address"]
+    country = person["Country"]
 
     # Generate a CPR similarly to how a normal CPR looks: ddMMyyyy-[random-4-digits]
-    birthday_time = datetime.now()
-    birthday = birthday_time.strftime("%d%m%Y")  # birthday attr not given therefore current date will be assigned !!!
+    birthday = date_of_birth.replace("-", "")
     cpr = generate_cpr(birthday)
 
     # Build an xml body that contains the firstname, lastname and CPR number
@@ -64,11 +65,11 @@ def add_person(person):
     msg_person_payload = {
         "f_name": firstname,
         "l_name": lastname,
-        "birth_date": birthday_time.strftime("%d-%m-%Y"),
+        "birth_date": date_of_birth,
         "email": email,
         "phone": phone,
-        "country": COUNTRY,
-        "address": NONE_ADDRESS,  # address attr not given therefore none address will be assigned !!!
+        "country": country,
+        "address": address,
         "CPR": cpr,
         "NemID": nem_id
     }
@@ -102,8 +103,10 @@ def build_xml(firstname, lastname, cpr, email):
 
 
 def create_msg_pack(msg_person_payload_json):
+    # TODO
     return msg_person_payload_json
 
 
 if __name__ == "__main__":
+    # TODO
     pass

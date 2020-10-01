@@ -1,6 +1,8 @@
 # library imports
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
 
 # local package imports
 from config import ADDRESS, DOCS_ENDPOINT, API_DESCRIPTION, NEM_ID_CODE_LENGTH, NEM_ID_LENGTH
@@ -14,6 +16,9 @@ PORT = "8090"
 GENERATED_NUMBER_LENGTH = 6
 
 API_TITLE = "NemId Code Generator"
+
+DB_PATH = "../NemID_ESB/nem_id_database.sqlite"
+Base = declarative_base()
 
 
 # API Type Models
@@ -51,8 +56,26 @@ def log(code_id_info: NemIdCodeGenInfo):
 
 # Check against the data from the database
 def checkNemIdInDB(code_id_info: NemIdCodeGenInfo) -> bool:
-    # TODO check database
-    return True
+    db = establishDBConnection()
+    user = db.session.query(EntityUser).filter(EntityUser.NemID == code_id_info.nemId).first()
+    return user & True  # TODO check if this returns correctly
+
+
+def establishDBConnection(logging=False):
+    engine = create_engine('sqlite:///' + DB_PATH, echo=logging)
+    db = engine.connect()
+    return db
+
+
+class EntityUser(Base):
+    __tablename__ = 'user'
+    id = Column(Integer, primary_key=True)
+    CPR = Column(String)
+    NemID = Column(String)
+    Password = Column(String)
+
+    def __repr__(self):
+        return "<User(CPR='%s', NemID='%s', Password='%s')>" % (self.CPR, self.NemID, self.Password)
 
 
 app.openapi = Custom_openapi(app, API_TITLE, API_DESCRIPTION, "1.0.0")
@@ -61,6 +84,3 @@ app.openapi = Custom_openapi(app, API_TITLE, API_DESCRIPTION, "1.0.0")
 # uvicorn api:app --reload --port 8090
 
 # --host 127.0.0.1
-
-if __name__ == "__main__":
-    print("Hello")
