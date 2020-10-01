@@ -3,11 +3,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
 # local package imports
-from mandatory1.config.deployment import ADDRESS, DOCS_ENDPOINT
-from mandatory1.config.namings import API_DESCRIPTION
-from mandatory1.config.vars import NEM_ID_CODE_LENGTH, NEM_ID_LENGTH
-from mandatory1.pkg.api_documentation import Custom_openapi
-from mandatory1.pkg.rnd_util import Random_with_N_digits
+from config import ADDRESS, DOCS_ENDPOINT, API_DESCRIPTION, NEM_ID_CODE_LENGTH, NEM_ID_LENGTH
+from pkg import Random_with_N_digits, Custom_openapi
 
 app = FastAPI(docs_url=DOCS_ENDPOINT)
 
@@ -64,3 +61,6 @@ app.openapi = Custom_openapi(app, API_TITLE, API_DESCRIPTION, "1.0.0")
 # uvicorn api:app --reload --port 8090
 
 # --host 127.0.0.1
+
+if __name__ == "__main__":
+    print("Hello")

@@ -8,3 +8,9 @@ fi
 source venv/bin/activate
 # install project dependencies
 pip install -r requirements.txt
+
+# set module to PYTHONPATH
+export PYTHONPATH=$(pwd)
+# cd mandatory1 || exit
+
+echo $PYTHONPATH

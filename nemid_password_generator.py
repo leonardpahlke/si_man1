@@ -1,12 +1,13 @@
 # library imports
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
+import sys
+
+sys.path.append("")
 
 # local package imports
-from mandatory1.config.namings import API_DESCRIPTION
-from mandatory1.config.deployment import ADDRESS, DOCS_ENDPOINT
-from mandatory1.config.vars import NEM_ID_LENGTH, CPR_LENGTH
-from mandatory1.pkg.api_documentation import Custom_openapi
+from config import ADDRESS, DOCS_ENDPOINT, API_DESCRIPTION, NEM_ID_LENGTH, CPR_LENGTH
+from pkg import Custom_openapi
 
 app = FastAPI(docs_url=DOCS_ENDPOINT)
 
@@ -26,7 +27,8 @@ class NemIdPasswordGenInfo(BaseModel):
 
 
 class NemIdPassword(BaseModel):
-    nemIdPassword: int = Field("", title="nemIdPassword", description="first 2 digits of nemId and last 2 digits of the cpr")
+    nemIdPassword: int = Field("", title="nemIdPassword",
+                               description="first 2 digits of nemId and last 2 digits of the cpr")
     statusCode: int = Field(200, title="status-code", description="http status-code")
     message: str = Field(200, title="message", description="response message")
 

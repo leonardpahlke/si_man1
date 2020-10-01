@@ -5,14 +5,11 @@ import re
 import sys
 
 # local package imports
-from mandatory1.config.namings import API_DESCRIPTION
-from mandatory1.config.deployment import ADDRESS, DOCS_ENDPOINT
-from mandatory1.config.vars import NEM_ID_LENGTH, CPR_LENGTH
-from mandatory1.pkg.api_documentation import Custom_openapi
-from mandatory1.pkg.rnd_util import Random_with_N_digits
+from config import ADDRESS, DOCS_ENDPOINT, API_DESCRIPTION, CPR_LENGTH
+from pkg import Random_with_N_digits, Custom_openapi
 
 
-sys.path.append('../../../mandatory1')
+sys.path.append('')
 
 app = FastAPI(docs_url=DOCS_ENDPOINT)
 
