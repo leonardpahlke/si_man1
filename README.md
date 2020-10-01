@@ -11,16 +11,21 @@ and RESTful APIs) integration patterns.
 ## System Diagram
 ![System Diagram](./assets/SI-Mandatory1-SystemDiagram%202020-09-30%20at%2011.02.48.png)
 
-## Install 
+## Getting Started
 
-1. install python3.8
-2. setup local environment run `source scripts/install.bash`
- 
-## Run Scenario
+1. **Install**
+    1. install python3.8
+    2. setup local environment run `source install.bash`
+2. **Start API's**
+    1. `uvicorn nemid_user_generator:app --reload --port 8088`
+    2. `uvicorn nemid_password_generator:app --reload --port 8089`
+    3. `uvicorn nemid_code_generator:app --reload --port 8090`
+3. **Access API Documentations**
+    1. [localhost:8088, NemId user generator](http://localhost:8088/docs)
+    2. [localhost:8088, NemId password generator](http://localhost:8089/docs)
+    3. [localhost:8088, NemId code generator](http://localhost:8090/docs)  
 
-1. mandatory1 scenario: run `source scripts/scenario_mandatory1.bash`
-  
-_execute scripts within the terminal from the project root folder_
+_execute scripts within the terminal from the project root folder. When using uvicorn the python virtual environment need to be activated_
 
 ## Mandatory 1 - Module descriptions
 

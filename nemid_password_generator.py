@@ -1,9 +1,6 @@
 # library imports
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
-import sys
-
-sys.path.append("")
 
 # local package imports
 from config import ADDRESS, DOCS_ENDPOINT, API_DESCRIPTION, NEM_ID_LENGTH, CPR_LENGTH
