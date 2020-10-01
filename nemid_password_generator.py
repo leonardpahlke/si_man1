@@ -1,16 +1,27 @@
+# TODO this fle is OK
+
 # library imports
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
 # local package imports
-from config import ADDRESS, DOCS_ENDPOINT, API_DESCRIPTION, NEM_ID_LENGTH, CPR_LENGTH
-from pkg import Custom_openapi
+from config import ADDRESS, DOCS_ENDPOINT, NEM_ID_LENGTH, CPR_LENGTH
+
+# NEMID PASSWORD GENERATOR
+# 1. Will receive a POST request to http://localhost:8089/generate-password-nemID with body:
+# {
+#   "cpr": "cpr_number",
+#   "nemId": "random_5_digit_number-Last_4_digits_of_cpr"
+# }
+# 2. Will send a JSON response (status 200): { "nemIdPassword": "first 2 digits of nemId and last 2 digits of the cpr" }
 
 app = FastAPI(docs_url=DOCS_ENDPOINT)
 
 # Variables
 PASS_FIRST_DIGITS_NEMID = 2
 PASS_LAST_DIGITS_CPR = 2
+
+NEMID_LAST_DIGITS_CPR = 4
 
 PORT = "8089"
 
@@ -38,17 +49,16 @@ def read_root():
 
 @app.post("/generate-password-nemID", response_model=NemIdPassword, name="Generate NemId code", tags=["NemId Code"])
 def log(code_id_info: NemIdPasswordGenInfo):
-    if (len(str(code_id_info.cpr)) != CPR_LENGTH) or (len(str(code_id_info.nemId)) != NEM_ID_LENGTH):
-        # input invalid because (cpr != eleven digits) OR (nemId != 9 digits)
+    # (CPR, NEMID length is correct) AND (check if NEMID has Last_4_digits_of_cpr)
+    if ((len(str(code_id_info.cpr)) != CPR_LENGTH) or (len(str(code_id_info.nemId)) != NEM_ID_LENGTH)) or \
+            (code_id_info.cpr[-NEMID_LAST_DIGITS_CPR:] != code_id_info.nemId[-NEMID_LAST_DIGITS_CPR:]):
+        # input invalid because (cpr != eleven digits) OR (nemId != 9 digits) OR NEMID hasn't Last_4_digits_of_cpr
         return NemIdPassword(nemIdPassword=0, statusCode=403, message="Invalid input")
     else:
         password = int(str(code_id_info.cpr[:PASS_FIRST_DIGITS_NEMID]) + str(code_id_info.cpr[-PASS_LAST_DIGITS_CPR:]))
         return NemIdPassword(nemIdPassword=password, statusCode=200, message="NemId-password created")
 
-
-app.openapi = Custom_openapi(app, API_TITLE, API_DESCRIPTION, "1.0.0")
-
 # local testing
-# uvicorn api:app --reload --port 8089
+# uvicorn nemid_password_generator:app --reload --port 8089
 
 # --host 127.0.0.1

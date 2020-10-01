@@ -1,15 +1,21 @@
+# TODO this fle is OK
+
 # library imports
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 import re
-import sys
 
 # local package imports
-from config import ADDRESS, DOCS_ENDPOINT, API_DESCRIPTION, CPR_LENGTH
-from pkg import Random_with_N_digits, Custom_openapi
+from config import ADDRESS, DOCS_ENDPOINT, CPR_LENGTH
+from pkg import Random_with_N_digits
 
-
-sys.path.append('')
+# NEMID USER GENERATOR
+# 1. Will receive a POST request to http://localhost:8088/generate-nemID with body:
+# {
+#   "cpr": "some 10 digit CPR",
+#   "email": "some@email.com"
+# }
+# 2. Will return a JSON response (status 201): { "nemId": "random_5_digit_number-Last_4_digits_of_cpr" }
 
 app = FastAPI(docs_url=DOCS_ENDPOINT)
 
@@ -21,7 +27,7 @@ PORT = "8088"
 
 API_TITLE = "NemID User Generator"
 
-# for validating an Email
+# for validating the Email format
 EMAIL_REGEX = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
 
 
@@ -45,18 +51,15 @@ def read_root():
 
 @app.post("/generate-nemID", response_model=NemIdResponse, name="Generate NemId code", tags=["NemId Code"])
 def log(code_id_info: NemIdUserGenInfo):
-    if (len(str(code_id_info.cpr)) == CPR_LENGTH) or (re.search(EMAIL_REGEX, code_id_info.email)):
-        random_number = Random_with_N_digits(GENERATED_NUMBER_LENGTH)
-        nem_id = int(str(random_number) + str(code_id_info.cpr[-PASS_LAST_DIGITS_CPR:]))
+    print(re.search(EMAIL_REGEX, code_id_info.email) is not None)
+    if (len(str(code_id_info.cpr)) == CPR_LENGTH) and (re.search(EMAIL_REGEX, code_id_info.email) is not None):
+        nem_id = int(str(Random_with_N_digits(GENERATED_NUMBER_LENGTH)) + str(code_id_info.cpr[-PASS_LAST_DIGITS_CPR:]))
         return NemIdResponse(nemId=nem_id, statusCode=200, message="NemId created")
     else:
         # input invalid because (cpr != eleven digits) OR (email format invalid)
         return NemIdResponse(nemId=0, statusCode=403, message="Invalid input")
 
-
-app.openapi = Custom_openapi(app, API_TITLE, API_DESCRIPTION, "1.0.0")
-
 # local testing
-# uvicorn api:app --reload --port 8088
+# uvicorn nemid_user_generator:app --reload --port 8088
 
 # --host 127.0.0.1

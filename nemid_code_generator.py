@@ -5,8 +5,17 @@ from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 # local package imports
-from config import ADDRESS, DOCS_ENDPOINT, API_DESCRIPTION, NEM_ID_CODE_LENGTH, NEM_ID_LENGTH
-from pkg import Random_with_N_digits, Custom_openapi
+from config import ADDRESS, DOCS_ENDPOINT, NEM_ID_CODE_LENGTH, NEM_ID_LENGTH
+from pkg import Random_with_N_digits
+
+# NEMID CODE GENERATOR
+# 1. Will receive a POST request at http://localhost:8090/nemid-auth with JSON body
+# {
+#   "nemIdCode": "code of four digits",
+#   "nemId": "generated 9 digit nemId"
+# }
+# 2. Check against the data from the database. If it matches this will return a JSON body with status code 200.
+# Otherwise it will return a 403 (forbidden): {generatedCode": "random 6 digits code"}
 
 app = FastAPI(docs_url=DOCS_ENDPOINT)
 
@@ -17,7 +26,7 @@ GENERATED_NUMBER_LENGTH = 6
 
 API_TITLE = "NemId Code Generator"
 
-DB_PATH = "../NemID_ESB/nem_id_database.sqlite"
+DB_PATH = "NemID_ESB/nem_id_database.sqlite"
 Base = declarative_base()
 
 
@@ -77,10 +86,7 @@ class EntityUser(Base):
     def __repr__(self):
         return "<User(CPR='%s', NemID='%s', Password='%s')>" % (self.CPR, self.NemID, self.Password)
 
-
-app.openapi = Custom_openapi(app, API_TITLE, API_DESCRIPTION, "1.0.0")
-
 # local testing
-# uvicorn api:app --reload --port 8090
+# uvicorn nemid_code_generator:app --reload --port 8090
 
 # --host 127.0.0.1
