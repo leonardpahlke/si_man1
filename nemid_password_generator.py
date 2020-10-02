@@ -1,5 +1,3 @@
-# TODO this fle is OK
-
 # library imports
 from fastapi import FastAPI
 from pydantic import BaseModel, Field

@@ -1,7 +1,7 @@
 # library imports
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
-import sqlalchemy as db
+# import sqlalchemy as db
 import random
 
 # local package imports
@@ -53,9 +53,9 @@ def log(code_id_info: NemIdCodeGenInfo):
         # input invalid because (nemIdCode != four digits) OR (nemId != 9 digits)
         return NemIdGeneratedCode(generatedCode=0, statusCode=403, message="Invalid input")
     else:
-        if checkNemIdInDB(code_id_info):
+        if check_nemid_in_db(code_id_info):
             # user provided valid information
-            random_number = random_with_N_digits(GENERATED_NUMBER_LENGTH)
+            random_number = random_with_n_digits(GENERATED_NUMBER_LENGTH)
             return NemIdGeneratedCode(generatedCode=random_number, statusCode=200, message="NemId-code generated")
         else:
             # user provided invalid information
@@ -63,12 +63,13 @@ def log(code_id_info: NemIdCodeGenInfo):
 
 
 # Check against the data from the database
-def checkNemIdInDB(code_id_info: NemIdCodeGenInfo) -> bool:
+def check_nemid_in_db(code_id_info: NemIdCodeGenInfo) -> bool:
+    print("check user nemId: {}".format(code_id_info.nemId))
     # TODO: establish database connection to sqlite file
-    engine = db.create_engine(DB_FILE_PATH)
-    connection = engine.connect()
-    metadata = db.MetaData()
-    db_user_table = db.table('user', metadata, autoload=True, autoload_with=engine)
+    # engine = db.create_engine(DB_FILE_PATH)
+    # connection = engine.connect()
+    # metadata = db.MetaData()
+    # db_user_table = db.table('user', metadata, autoload=True, autoload_with=engine)
 
     # TODO: query database if nemId can be found
 
@@ -79,18 +80,18 @@ def checkNemIdInDB(code_id_info: NemIdCodeGenInfo) -> bool:
     return True
 
 
-class EntityUser(Base):
-    __tablename__ = 'user'
-    id = Column(Integer, primary_key=True)
-    CPR = Column(String)
-    NemID = Column(String)
-    Password = Column(String)
+# class EntityUser(Base):
+#     __tablename__ = 'user'
+#     id = Column(Integer, primary_key=True)
+#     CPR = Column(String)
+#     NemID = Column(String)
+#     Password = Column(String)
+#
+#     def __repr__(self):
+#         return "<User(CPR='%s', NemID='%s', Password='%s')>" % (self.CPR, self.NemID, self.Password)
 
-    def __repr__(self):
-        return "<User(CPR='%s', NemID='%s', Password='%s')>" % (self.CPR, self.NemID, self.Password)
 
-
-def random_with_N_digits(n):
+def random_with_n_digits(n):
     return int("".join([str(random.randint(0, 9)) for _ in range(n)]))
 
 # local testing

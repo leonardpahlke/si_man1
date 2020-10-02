@@ -15,11 +15,13 @@ and RESTful APIs) integration patterns.
 
 1. **Install**
     1. install python3.8
-    2. setup local environment run `source install.bash`
+    2. install node
+    3. setup local python environment run `source install.bash`
 2. **Start API's**
     1. `uvicorn nemid_user_generator:app --reload --port 8088`
     2. `uvicorn nemid_password_generator:app --reload --port 8089`
     3. `uvicorn nemid_code_generator:app --reload --port 8090`
+    4. `node NemID_ESB/esb_mock.js`
 3. **Access API Documentations**
     1. [localhost:8088, NemId-user-generator](http://localhost:8088/docs)
     2. [localhost:8089, NemId-password-generator](http://localhost:8089/docs)
