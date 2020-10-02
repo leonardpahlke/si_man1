@@ -4,6 +4,7 @@ import csv
 import xml.etree.ElementTree as ElementTree
 import msgpack
 import random
+from io import BytesIO
 
 # LEGACY CENTRAL SYSTEM
 # 1. The system must read the people.csv file
@@ -96,7 +97,6 @@ def read_csv_file(csv_location, delimiter=","):
     return csv_persons
 
 
-# TODO check I can add here multiple persons as well
 # Maybe split at serializing step
 def add_person(person_wrapper):
     if LOGGING:
@@ -122,14 +122,14 @@ def add_person(person_wrapper):
     nem_id = json_response["nemID"]
     person_wrapper.set_nem_id(nem_id)
     if LOGGING:
-        print("Person Information updated:", person_wrapper)
+        print("Person Information updated:", person_wrapper, ", response localhost/nemID:", json_response)
 
     # An msgpack_data file will be created with the name [CPR]. msgpack_data which will contain f_name, l_name,
     # birth_date[DD-MM-YYYY], email, country, phone, address, CPR and NemID number.
     # I suggest you make a JSON object and then serialize it.
 
-    msg_person_payload_json = json.loads(person_wrapper.transform_person_to_dict())
-    create_msg_pack(msg_person_payload_json)
+    person_json_str = json.dumps(person_wrapper.transform_person_to_dict())
+    create_msg_pack(person_json_str, person_wrapper.lastname)
 
 
 # Build an xml body that contains the firstname, lastname and CPR number
@@ -154,11 +154,12 @@ def build_xml(firstname, lastname, cpr, email) -> bytes:
 
 
 # serialize a person dictionary
-def create_msg_pack(msg_person_payload_json):
-    # Write msgpack_data file (named: "<email>cpr.msgpack" to have a unique file for a each person)
-    with open(MSG_PACK_LOCATION + msg_person_payload_json["email"] + "cpr.msgpack", "wb") as outfile:
-        packed = msgpack.packb(msg_person_payload_json)
-        outfile.write(packed)
+def create_msg_pack(person_json_str, lastname):
+    # Write msgpack_data file (named: "<lastname>cpr.msgpack" to have a unique file for a each person)
+    file_path = "{}{}{}.msgpack".format(MSG_PACK_LOCATION, lastname, "Cpr")
+    with open(file_path, "wb") as msgpack_file:
+        packed = msgpack.packb(person_json_str)
+        msgpack_file.write(packed)
 
 
 def read_csv_and_create_msgpack():
@@ -173,8 +174,9 @@ def random_with_n_digits(n):
 
 if __name__ == "__main__":
     mode = input("Create persons from csv [y/n]: ")
-    if mode == "y":
-        LOGGING = True  # TODO
+    if mode.lower() == "y":
+        logging = input("Log to console [y/n]: ")
+        LOGGING = logging.lower() == "y"
         read_csv_and_create_msgpack()
     else:
         print("exit legacy system...")

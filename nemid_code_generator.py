@@ -1,8 +1,9 @@
 # library imports
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
-# import sqlalchemy as db
+import sqlalchemy as db
 import random
+from sqlalchemy.ext.declarative import declarative_base
 
 # local package imports
 from config import ADDRESS, DOCS_ENDPOINT, NEM_ID_CODE_LENGTH, NEM_ID_LENGTH
@@ -25,8 +26,8 @@ GENERATED_NUMBER_LENGTH = 6
 
 API_TITLE = "NemId Code Generator"
 
-DB_FILE_PATH = "sqlite:///NemID_ESB/nem_id_database.sqlite"
-# Base = declarative_base()
+DB_FILE_PATH = "sqlite:///nem_id_database.sqlite"
+Base = declarative_base()
 
 
 # API Type Models
@@ -65,27 +66,22 @@ def log(code_id_info: NemIdCodeGenInfo):
 # Check against the data from the database
 def check_nemid_in_db(code_id_info: NemIdCodeGenInfo) -> bool:
     print("check user nemId: {}".format(code_id_info.nemId))
-    # TODO: establish database connection to sqlite file
-    # engine = db.create_engine(DB_FILE_PATH)
-    # connection = engine.connect()
-    # metadata = db.MetaData()
-    # db_user_table = db.table('user', metadata, autoload=True, autoload_with=engine)
+    # establish database connection to sqlite file
+    engine = db.create_engine(DB_FILE_PATH)
+    connection = engine.connect()
 
-    # TODO: query database if nemId can be found
+    # search in database for nemid
+    res = connection.execute("SELECT * FROM user WHERE nemid={}".format(code_id_info.nemId))
 
-    # TODO: return result
-
-    # user = db.session.query(EntityUser).filter(EntityUser.NemID == code_id_info.nemId).first()
-    # return user & True  # TODO check if this returns correctly
-    return True
+    return len(res.fetchall()) != 0
 
 
 # class EntityUser(Base):
 #     __tablename__ = 'user'
-#     id = Column(Integer, primary_key=True)
-#     CPR = Column(String)
-#     NemID = Column(String)
-#     Password = Column(String)
+#     id = db.Column(db.Integer, primary_key=True)
+#     CPR = db.Column(db.String)
+#     NemID = db.Column(db.String)
+#     Password = db.Column(db.String)
 #
 #     def __repr__(self):
 #         return "<User(CPR='%s', NemID='%s', Password='%s')>" % (self.CPR, self.NemID, self.Password)

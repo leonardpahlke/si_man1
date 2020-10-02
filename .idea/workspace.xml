@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca64afb3-adab-41a6-ae2f-ee43c2d670a0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/si_mandatory1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_System/people.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Main_System/people.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NemID_ESB\nem_id_database.sqlite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/240a149e-a1a4-4923-9c3d-a8c1d37ff4b8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/TaskDescription.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msgpack_data/Pahlkecpr.msgpack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NemID_ESB/nem_id_database.sqlite" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/legacy_central_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/legacy_central_system.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nem_id_database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/nem_id_database.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nemid_code_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/nemid_code_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nemid_password_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/nemid_password_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nemid_user_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/nemid_user_generator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,14 +59,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/../si_mandatory/mandatory1/internal" />
       <recent name="$PROJECT_DIR$/../si_mandatory/mandatory1/cmd" />
       <recent name="$PROJECT_DIR$/../si_mandatory/mandatory1" />
-      <recent name="$PROJECT_DIR$/assets" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.client">
+  <component name="RunManager" selected="Python.legacy_central_system">
     <configuration default="true" type="docs" factoryName="Docutils task">
       <module name="si_mandatory" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -314,8 +307,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.client" />
         <item itemvalue="Python.legacy_central_system" />
+        <item itemvalue="Python.client" />
       </list>
     </recent_temporary>
   </component>
@@ -332,7 +325,7 @@
       <workItem from="1601457667990" duration="10462000" />
       <workItem from="1601646532750" duration="161000" />
       <workItem from="1601646720239" duration="30000" />
-      <workItem from="1601646770331" duration="1843000" />
+      <workItem from="1601646770331" duration="5594000" />
     </task>
     <servers />
   </component>
@@ -356,22 +349,22 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="697" y="390" key="FileChooserDialogImpl/0.23.1792.1097@0.23.1792.1097" timestamp="1601647265692" />
-    <state width="1748" height="298" key="GridCell.Tab.0.bottom" timestamp="1601648356052">
+    <state width="1748" height="298" key="GridCell.Tab.0.bottom" timestamp="1601656561142">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1748" height="298" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1601648356052" />
-    <state width="1748" height="298" key="GridCell.Tab.0.center" timestamp="1601648356051">
+    <state width="1748" height="298" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1601656561142" />
+    <state width="1748" height="298" key="GridCell.Tab.0.center" timestamp="1601656561142">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1748" height="298" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1601648356051" />
-    <state width="1748" height="298" key="GridCell.Tab.0.left" timestamp="1601648356051">
+    <state width="1748" height="298" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1601656561142" />
+    <state width="1748" height="298" key="GridCell.Tab.0.left" timestamp="1601656561141">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1748" height="298" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1601648356051" />
-    <state width="1748" height="298" key="GridCell.Tab.0.right" timestamp="1601648356051">
+    <state width="1748" height="298" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1601656561141" />
+    <state width="1748" height="298" key="GridCell.Tab.0.right" timestamp="1601656561142">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1748" height="298" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1601648356051" />
+    <state width="1748" height="298" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1601656561142" />
     <state x="397" y="210" key="SettingsEditor" timestamp="1601647325417">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
@@ -386,7 +379,7 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/si_mandatory1$client.coverage" NAME="client Coverage Results" MODIFIED="1601648457959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Client_System" />
-    <SUITE FILE_PATH="coverage/si_mandatory1$legacy_central_system.coverage" NAME="legacy_central_system Coverage Results" MODIFIED="1601648350762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/si_mandatory1$client.coverage" NAME="client Coverage Results" MODIFIED="1601652579185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Client_System" />
+    <SUITE FILE_PATH="coverage/si_mandatory1$legacy_central_system.coverage" NAME="legacy_central_system Coverage Results" MODIFIED="1601656529694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
