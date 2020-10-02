@@ -4,10 +4,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 import re
+import random
 
 # local package imports
 from config import ADDRESS, DOCS_ENDPOINT, CPR_LENGTH
-from pkg import Random_with_N_digits
 
 # NEMID USER GENERATOR
 # 1. Will receive a POST request to http://localhost:8088/generate-nemID with body:
@@ -53,12 +53,15 @@ def read_root():
 def log(code_id_info: NemIdUserGenInfo):
     print(re.search(EMAIL_REGEX, code_id_info.email) is not None)
     if (len(str(code_id_info.cpr)) == CPR_LENGTH) and (re.search(EMAIL_REGEX, code_id_info.email) is not None):
-        nem_id = int(str(Random_with_N_digits(GENERATED_NUMBER_LENGTH)) + str(code_id_info.cpr[-PASS_LAST_DIGITS_CPR:]))
+        nem_id = int(str(random_with_N_digits(GENERATED_NUMBER_LENGTH)) + str(code_id_info.cpr[-PASS_LAST_DIGITS_CPR:]))
         return NemIdResponse(nemId=nem_id, statusCode=200, message="NemId created")
     else:
         # input invalid because (cpr != eleven digits) OR (email format invalid)
         return NemIdResponse(nemId=0, statusCode=403, message="Invalid input")
 
+
+def random_with_N_digits(n):
+    return int("".join([str(random.randint(0, 9)) for _ in range(n)]))
 # local testing
 # uvicorn nemid_user_generator:app --reload --port 8088
 

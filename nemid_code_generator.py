@@ -1,12 +1,11 @@
 # library imports
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+import sqlalchemy as db
+import random
 
 # local package imports
 from config import ADDRESS, DOCS_ENDPOINT, NEM_ID_CODE_LENGTH, NEM_ID_LENGTH
-from pkg import Random_with_N_digits
 
 # NEMID CODE GENERATOR
 # 1. Will receive a POST request at http://localhost:8090/nemid-auth with JSON body
@@ -26,8 +25,8 @@ GENERATED_NUMBER_LENGTH = 6
 
 API_TITLE = "NemId Code Generator"
 
-DB_PATH = "NemID_ESB/nem_id_database.sqlite"
-Base = declarative_base()
+DB_FILE_PATH = "sqlite:///NemID_ESB/nem_id_database.sqlite"
+# Base = declarative_base()
 
 
 # API Type Models
@@ -56,7 +55,7 @@ def log(code_id_info: NemIdCodeGenInfo):
     else:
         if checkNemIdInDB(code_id_info):
             # user provided valid information
-            random_number = Random_with_N_digits(GENERATED_NUMBER_LENGTH)
+            random_number = random_with_N_digits(GENERATED_NUMBER_LENGTH)
             return NemIdGeneratedCode(generatedCode=random_number, statusCode=200, message="NemId-code generated")
         else:
             # user provided invalid information
@@ -65,15 +64,19 @@ def log(code_id_info: NemIdCodeGenInfo):
 
 # Check against the data from the database
 def checkNemIdInDB(code_id_info: NemIdCodeGenInfo) -> bool:
-    db = establishDBConnection()
-    user = db.session.query(EntityUser).filter(EntityUser.NemID == code_id_info.nemId).first()
-    return user & True  # TODO check if this returns correctly
+    # TODO: establish database connection to sqlite file
+    engine = db.create_engine(DB_FILE_PATH)
+    connection = engine.connect()
+    metadata = db.MetaData()
+    db_user_table = db.table('user', metadata, autoload=True, autoload_with=engine)
 
+    # TODO: query database if nemId can be found
 
-def establishDBConnection(logging=False):
-    engine = create_engine('sqlite:///' + DB_PATH, echo=logging)
-    db = engine.connect()
-    return db
+    # TODO: return result
+
+    # user = db.session.query(EntityUser).filter(EntityUser.NemID == code_id_info.nemId).first()
+    # return user & True  # TODO check if this returns correctly
+    return True
 
 
 class EntityUser(Base):
@@ -85,6 +88,10 @@ class EntityUser(Base):
 
     def __repr__(self):
         return "<User(CPR='%s', NemID='%s', Password='%s')>" % (self.CPR, self.NemID, self.Password)
+
+
+def random_with_N_digits(n):
+    return int("".join([str(random.randint(0, 9)) for _ in range(n)]))
 
 # local testing
 # uvicorn nemid_code_generator:app --reload --port 8090
