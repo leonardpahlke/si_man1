@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca64afb3-adab-41a6-ae2f-ee43c2d670a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/240a149e-a1a4-4923-9c3d-a8c1d37ff4b8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/TaskDescription.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msgpack_data/Pahlkecpr.msgpack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NemID_ESB/nem_id_database.sqlite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacy_central_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/legacy_central_system.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_System/people.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Main_System/people.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msgpack_data/Pahlkecpr.msgpack" beforeDir="false" afterPath="$PROJECT_DIR$/msgpack_data/Pahlkecpr.msgpack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nem_id_database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/nem_id_database.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nemid_code_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/nemid_code_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nemid_password_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/nemid_password_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nemid_user_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/nemid_user_generator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +42,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
@@ -67,51 +72,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.legacy_central_system">
-    <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="si_mandatory" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="si_mandatory" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="si_mandatory" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -246,6 +206,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="person" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="si_mandatory1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Client_System" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Client_System/person.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="Python.FlaskServer">
       <module name="si_mandatory" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -269,6 +251,40 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Docutils task">
+      <module name="si_mandatory" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Sphinx task">
+      <module name="si_mandatory" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -309,6 +325,7 @@
       <list>
         <item itemvalue="Python.legacy_central_system" />
         <item itemvalue="Python.client" />
+        <item itemvalue="Python.person" />
       </list>
     </recent_temporary>
   </component>
@@ -325,7 +342,10 @@
       <workItem from="1601457667990" duration="10462000" />
       <workItem from="1601646532750" duration="161000" />
       <workItem from="1601646720239" duration="30000" />
-      <workItem from="1601646770331" duration="5594000" />
+      <workItem from="1601646770331" duration="6311000" />
+      <workItem from="1601720685024" duration="43000" />
+      <workItem from="1601803381727" duration="11000" />
+      <workItem from="1601966648821" duration="6577000" />
     </task>
     <servers />
   </component>
@@ -337,6 +357,10 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="384" y="153" key="#Project_Structure/0.23.1792.1097@0.23.1792.1097" timestamp="1601647167075" />
+    <state x="496" y="237" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601967755625">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="496" y="237" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1601967755625" />
     <state x="446" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601486383648">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
@@ -349,37 +373,46 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="697" y="390" key="FileChooserDialogImpl/0.23.1792.1097@0.23.1792.1097" timestamp="1601647265692" />
-    <state width="1748" height="298" key="GridCell.Tab.0.bottom" timestamp="1601656561142">
+    <state width="1750" height="332" key="GridCell.Tab.0.bottom" timestamp="1601985396656">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1748" height="298" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1601656561142" />
-    <state width="1748" height="298" key="GridCell.Tab.0.center" timestamp="1601656561142">
+    <state width="1750" height="332" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1601985396656" />
+    <state width="1750" height="332" key="GridCell.Tab.0.center" timestamp="1601985396656">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1748" height="298" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1601656561142" />
-    <state width="1748" height="298" key="GridCell.Tab.0.left" timestamp="1601656561141">
+    <state width="1750" height="332" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1601985396656" />
+    <state width="1750" height="332" key="GridCell.Tab.0.left" timestamp="1601985396655">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1748" height="298" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1601656561141" />
-    <state width="1748" height="298" key="GridCell.Tab.0.right" timestamp="1601656561142">
+    <state width="1750" height="332" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1601985396655" />
+    <state width="1750" height="332" key="GridCell.Tab.0.right" timestamp="1601985396656">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1748" height="298" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1601656561142" />
+    <state width="1750" height="332" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1601985396656" />
+    <state width="243" height="539" key="HiddenNamespacesPopup" timestamp="1601967534266">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="243" height="539" key="HiddenNamespacesPopup/0.23.1792.1097@0.23.1792.1097" timestamp="1601967534266" />
     <state x="397" y="210" key="SettingsEditor" timestamp="1601647325417">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="397" y="210" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1601647325417" />
-    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1601647762942">
+    <state x="264" y="148" key="new project wizard" timestamp="1601720726395">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1601647762942" />
+    <state x="264" y="148" key="new project wizard/0.23.1792.1097@0.23.1792.1097" timestamp="1601720726395" />
+    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1601968737034">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1601968737034" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/si_mandatory1$client.coverage" NAME="client Coverage Results" MODIFIED="1601652579185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Client_System" />
-    <SUITE FILE_PATH="coverage/si_mandatory1$legacy_central_system.coverage" NAME="legacy_central_system Coverage Results" MODIFIED="1601656529694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/si_mandatory1$person.coverage" NAME="person Coverage Results" MODIFIED="1601968219361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Client_System" />
+    <SUITE FILE_PATH="coverage/si_mandatory1$legacy_central_system.coverage" NAME="legacy_central_system Coverage Results" MODIFIED="1601974934848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/si_mandatory1$client.coverage" NAME="client Coverage Results" MODIFIED="1601974924944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Client_System" />
   </component>
 </project>

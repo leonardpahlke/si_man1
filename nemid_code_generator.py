@@ -50,16 +50,20 @@ def read_root():
 
 @app.post("/nemid-auth", response_model=NemIdGeneratedCode, name="Generate NemId code", tags=["NemId Code"])
 def log(code_id_info: NemIdCodeGenInfo):
+    print("nemid-auth")
     if (len(str(code_id_info.nemIdCode)) != NEM_ID_CODE_LENGTH) or (len(str(code_id_info.nemId)) != NEM_ID_LENGTH):
         # input invalid because (nemIdCode != four digits) OR (nemId != 9 digits)
+        print("err")
         return NemIdGeneratedCode(generatedCode=0, statusCode=403, message="Invalid input")
     else:
         if check_nemid_in_db(code_id_info):
             # user provided valid information
             random_number = random_with_n_digits(GENERATED_NUMBER_LENGTH)
+            print("nemId auth:", random_number)
             return NemIdGeneratedCode(generatedCode=random_number, statusCode=200, message="NemId-code generated")
         else:
             # user provided invalid information
+            print("err")
             return NemIdGeneratedCode(generatedCode=0, statusCode=403, message="NemId not found")
 
 

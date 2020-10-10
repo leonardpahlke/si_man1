@@ -3,6 +3,8 @@ _Winter Semester 2020/2021_
 
 _Author: Leonard Pahlke_
 
+[GitHub Repository](_https://github.com/leonardpahlke/si_mandatory1_)
+
 
 The purpose of this assignment is to showcase different scenarios and integration techniques in a way that contributes 
 to the creation of a solution that incorporates file-based integration, shared databases as well as RPC (web services 
@@ -17,6 +19,7 @@ and RESTful APIs) integration patterns.
     1. install python3.8
     2. install node
     3. setup local python environment run `source install.bash`
+    4. install npm dependencies with `npm install` (inside the folder NemID_ESB) 
 2. **Start API's**
     1. `uvicorn nemid_user_generator:app --reload --port 8088`
     2. `uvicorn nemid_password_generator:app --reload --port 8089`

@@ -8,4 +8,4 @@ API_DESCRIPTION = "This is Part of the KEA System Integration Mandatory Assignme
 # Vars
 NEM_ID_CODE_LENGTH = 4
 NEM_ID_LENGTH = 9
-CPR_LENGTH = 10
+CPR_LENGTH = 13

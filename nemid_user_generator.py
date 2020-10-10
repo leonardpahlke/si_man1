@@ -49,12 +49,15 @@ def read_root():
 
 @app.post("/generate-nemId", response_model=NemIdResponse, name="Generate NemId code", tags=["NemId Code"])
 def log(code_id_info: NemIdUserGenInfo):
-    print(re.search(EMAIL_REGEX, code_id_info.email) is not None)
+    print("generate-nemId \n email ok:", re.search(EMAIL_REGEX, code_id_info.email) is not None)
+    print(len(str(code_id_info.cpr)), CPR_LENGTH)
     if (len(str(code_id_info.cpr)) == CPR_LENGTH) and (re.search(EMAIL_REGEX, code_id_info.email) is not None):
         nem_id = int(str(random_with_n_digits(GENERATED_NUMBER_LENGTH)) + str(code_id_info.cpr[-PASS_LAST_DIGITS_CPR:]))
+        print("nem_id:", nem_id)
         return NemIdResponse(nemId=nem_id, statusCode=200, message="NemId created")
     else:
         # input invalid because (cpr != eleven digits) OR (email format invalid)
+        print("err")
         return NemIdResponse(nemId=0, statusCode=403, message="Invalid input")
 
 

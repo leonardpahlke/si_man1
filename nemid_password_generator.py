@@ -47,13 +47,16 @@ def read_root():
 
 @app.post("/generate-password-nemID", response_model=NemIdPassword, name="Generate NemId code", tags=["NemId Code"])
 def log(code_id_info: NemIdPasswordGenInfo):
+    print("generate-password-nemID")
     # (CPR, NEMID length is correct) AND (check if NEMID has Last_4_digits_of_cpr)
     if ((len(str(code_id_info.cpr)) != CPR_LENGTH) or (len(str(code_id_info.nemId)) != NEM_ID_LENGTH)) or \
             (code_id_info.cpr[-NEMID_LAST_DIGITS_CPR:] != code_id_info.nemId[-NEMID_LAST_DIGITS_CPR:]):
         # input invalid because (cpr != eleven digits) OR (nemId != 9 digits) OR NEMID hasn't Last_4_digits_of_cpr
+        print("err")
         return NemIdPassword(nemIdPassword=0, statusCode=403, message="Invalid input")
     else:
         password = int(str(code_id_info.cpr[:PASS_FIRST_DIGITS_NEMID]) + str(code_id_info.cpr[-PASS_LAST_DIGITS_CPR:]))
+        print("generated password:", password)
         return NemIdPassword(nemIdPassword=password, statusCode=200, message="NemId-password created")
 
 # local testing
